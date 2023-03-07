@@ -35,7 +35,7 @@ public class ShopMain extends JavaPlugin {
         }
 
         plugin = this;
-        new Metrics(this, 12345); // TODO: 수정
+        new Metrics(plugin, 17609);
 
         // CONFIG
         ConfigContent.getInstance();
