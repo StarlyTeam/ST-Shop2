@@ -32,7 +32,9 @@ public class InventoryCloseListener implements Listener {
             case ITEM_DETAIL_SETTING: {
                 if (openType == InventoryOpenType.ITEM_SETTING) {
                     Inventory inv = event.getInventory();
-                    for (int i = 0; i < inv.getSize(); i++) shopData.setItem(i, inv.getItem(i));
+                    for (int i = 0; i < inv.getSize(); i++) {
+                        if (shopData.getItem(i) != inv.getItem(i)) shopData.setItem(i, inv.getItem(i));
+                    }
                 }
 
                 Bukkit.getServer().getScheduler().runTaskLater(ShopMain.getPlugin(), () -> {
