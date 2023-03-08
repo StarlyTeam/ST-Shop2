@@ -77,6 +77,7 @@ public class ShopData {
         if (itemStack == null) {
             config.setObject("shop.items." + slot, null);
             config.setObject("shop.prices." + slot, null);
+            config.setObject("shop.stocks." + slot, null);
             return;
         }
 
@@ -87,8 +88,8 @@ public class ShopData {
             ex.printStackTrace();
         }
 
-        setSellPrice(slot, -1);
-        setBuyPrice(slot, -1);
+        if (getSellPrice(slot) == 0) setSellPrice(slot, -1);
+        if (getBuyPrice(slot) == 0) setBuyPrice(slot, -1);
     }
 
     public Inventory getShopInv() {
