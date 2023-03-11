@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ce833408-e3d7-47cb-819f-58c41d139e43" name="Changes" comment="fix: Bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/event/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/event/InventoryClickListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
@@ -121,6 +121,10 @@
       <workItem from="1678188083873" duration="584000" />
       <workItem from="1678189394372" duration="464000" />
       <workItem from="1678198494153" duration="632000" />
+      <workItem from="1678261320983" duration="4486000" />
+      <workItem from="1678360818485" duration="20000" />
+      <workItem from="1678519458523" duration="657000" />
+      <workItem from="1678522619135" duration="406000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Git Bugs">
       <created>1678188597809</created>
@@ -150,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678198510463</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix: Bugs">
+      <created>1678261331403</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678261331403</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

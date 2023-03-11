@@ -25,8 +25,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 import static net.starly.shop.ShopMain.*;
 
@@ -112,16 +114,26 @@ public class InventoryClickListener implements Listener {
                     }
 
                     ItemStack originStack = shopData.getItem(slot);
+                    int originAmount = originStack.getAmount();
 
-                    if (Arrays.stream(player.getInventory().getContents()).filter(Objects::nonNull).noneMatch(originStack::equals)) {
+                    List<ItemStack> matches = Arrays.stream(player.getInventory().getContents()).filter(Objects::nonNull).filter(stack -> {
+                        stack = stack.clone();
+                        stack.setAmount(1);
+                        originStack.setAmount(1);
+                        return originStack.equals(stack);
+                    }).collect(Collectors.toList());
+                    if (matches.isEmpty()) {
                         player.sendMessage(msgConfig.getMessage("errorMessages.noItemInInventory"));
                         return;
                     }
 
+                    originStack.setAmount(originAmount);
+
                     for (int i = 0; i < 36; i++) {
                         ItemStack itemStack = player.getInventory().getItem(i);
                         if (itemStack == null || itemStack.getType() == Material.AIR) continue;
-                        if (itemStack.getType() != originStack.getType()) continue;
+                        if (!matches.contains(itemStack)) continue;
+                        itemStack = itemStack.clone();
 
                         if (itemStack.getAmount() == 1) {
                             player.getInventory().setItem(i, null);
@@ -132,7 +144,7 @@ public class InventoryClickListener implements Listener {
                         break;
                     }
 
-                    economy.depositPlayer(player, shopData.getSellPrice(slot));
+                    getEconomy().depositPlayer(player, shopData.getSellPrice(slot));
                     player.sendMessage(msgConfig.getMessage("messages.itemSelled").replace("{price}", shopData.getSellPrice(slot) + "").replace("{amount}", 1 + ""));
                 } else if (clickType.name().equals(config.getString("click.sell-64"))) {
                     if (shopData.getSellPrice(slot) == -1) {
@@ -141,14 +153,23 @@ public class InventoryClickListener implements Listener {
                     }
 
                     ItemStack originStack = shopData.getItem(slot);
+                    int originAmount = originStack.getAmount();
 
-                    if (Arrays.stream(player.getInventory().getContents()).filter(Objects::nonNull).noneMatch(originStack::equals)) {
+                    List<ItemStack> matches = Arrays.stream(player.getInventory().getContents()).filter(Objects::nonNull).filter(stack -> {
+                        stack = stack.clone();
+                        stack.setAmount(1);
+                        originStack.setAmount(1);
+                        return originStack.equals(stack);
+                    }).collect(Collectors.toList());
+                    if (matches.isEmpty()) {
                         player.sendMessage(msgConfig.getMessage("errorMessages.noItemInInventory"));
                         return;
                     }
 
+                    originStack.setAmount(originAmount);
+
                     AtomicInteger totalSelled = new AtomicInteger();
-                    Arrays.stream(player.getInventory().getContents()).filter(Objects::nonNull).filter(originStack::equals).forEach(s -> totalSelled.addAndGet(s.getAmount()));
+                    matches.forEach(s -> totalSelled.addAndGet(s.getAmount()));
                     if (totalSelled.get() > 64) totalSelled.set(64);
 
                     int totalRemoved = 0;
@@ -157,29 +178,22 @@ public class InventoryClickListener implements Listener {
 
                         ItemStack itemStack = player.getInventory().getItem(i);
                         if (itemStack == null || itemStack.getType() == Material.AIR) continue;
-                        if (itemStack.getType() != originStack.getType()) continue;
+                        if (!matches.contains(itemStack)) continue;
+                        itemStack = itemStack.clone();
 
-
-                        if (itemStack.getAmount() == 64) {
+                        if (itemStack.getAmount() <= (totalSelled.get() - totalRemoved)) {
                             player.getInventory().setItem(i, null);
-                            totalRemoved += 64;
-                        } else if (itemStack.getAmount() == 1) {
-                            player.getInventory().setItem(i, null);
-                            totalRemoved++;
+                            totalRemoved += itemStack.getAmount();
                         } else {
-                            if (itemStack.getAmount() <= (totalSelled.get() - totalRemoved)) {
-                                totalRemoved += itemStack.getAmount();
-                                itemStack.setAmount(0);
-                            } else {
-                                totalRemoved += (totalSelled.get() - totalRemoved);
-                                itemStack.setAmount(itemStack.getAmount() - (totalSelled.get() - totalRemoved));
-                            }
+                            itemStack.setAmount(itemStack.getAmount() - (totalSelled.get() - totalRemoved));
+                            player.getInventory().setItem(i, itemStack);
+                            totalRemoved += (totalSelled.get() - totalRemoved);
                         }
                     }
 
-                    economy.depositPlayer(player, totalSelled.get() * shopData.getSellPrice(slot));
+                    getEconomy().depositPlayer(player, totalSelled.get() * shopData.getSellPrice(slot));
                     player.sendMessage(msgConfig.getMessage("messages.itemSelled").replace("{price}", (totalSelled.get() * shopData.getSellPrice(slot)) + "").replace("{amount}", totalSelled.get() + ""));
-                }
+                } else return;
 
                 break;
             }
