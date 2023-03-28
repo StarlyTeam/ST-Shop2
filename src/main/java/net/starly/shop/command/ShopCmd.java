@@ -24,8 +24,8 @@ public class ShopCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) return true;
-        Config msgConfig = ConfigContent.getInstance().getMsgConfig();
         Player player = (Player) sender;
+        Config msgConfig = ConfigContent.getInstance().getMsgConfig();
 
         if (args.length == 0) {
             if (!player.hasPermission("starly.shop.help")) {

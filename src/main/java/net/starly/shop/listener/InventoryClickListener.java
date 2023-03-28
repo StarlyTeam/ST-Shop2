@@ -1,4 +1,4 @@
-package net.starly.shop.event;
+package net.starly.shop.listener;
 
 import lombok.AllArgsConstructor;
 import net.milkbowl.vault.economy.Economy;
@@ -51,9 +51,11 @@ public class InventoryClickListener implements Listener {
         ClickType clickType = event.getClick();
         InventoryOpenType openType = inventoryOpenMap.get(player).getFirst();
         ShopData shopData = inventoryOpenMap.get(player).getSecond();
-        event.setCancelled(true);
 
-        if (openType != InventoryOpenType.ITEM_SETTING && currentStack == null) return;
+        if (currentStack == null || currentStack.getType() == Material.AIR) return;
+        if (openType == InventoryOpenType.ITEM_SETTING) return;
+
+        event.setCancelled(true);
 
         switch (openType) {
             case SHOP: {

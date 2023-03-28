@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce833408-e3d7-47cb-819f-58c41d139e43" name="Changes" comment="fix: Bugs">
+    <list default="true" id="ce833408-e3d7-47cb-819f-58c41d139e43" name="Changes" comment="modify: message">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-07__8_54__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-07_오후_8_54_[Changes]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/ShopMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/ShopMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/command/ShopCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/command/ShopCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/event/AsyncPlayerChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/listener/AsyncPlayerChatListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/event/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/listener/InventoryClickListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/event/InventoryCloseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/listener/InventoryCloseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/shop/event/PlayerCommandPreprocessListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/shop/listener/PlayerCommandPreprocessListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,18 +77,18 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/개발/TEAM/Starly/Projects/Plugins/Free/ST-Shop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/개발/TEAM/Starly/Projects/Plugins/Premium/ST-CashShop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ST-Shop [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -125,6 +136,12 @@
       <workItem from="1678519458523" duration="657000" />
       <workItem from="1678522619135" duration="690000" />
       <workItem from="1678527066962" duration="39000" />
+      <workItem from="1678544847341" duration="59000" />
+      <workItem from="1678625030612" duration="617000" />
+      <workItem from="1678637734968" duration="96000" />
+      <workItem from="1678638821071" duration="1218000" />
+      <workItem from="1679830217739" duration="625000" />
+      <workItem from="1680003287496" duration="2107000" />
     </task>
     <task id="LOCAL-00001" summary="fix: Git Bugs">
       <created>1678188597809</created>
@@ -175,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678527078148</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="modify: message">
+      <created>1678544875073</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678544875073</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +210,7 @@
     <MESSAGE value="feat: Metrics" />
     <MESSAGE value="fix: idea project" />
     <MESSAGE value="fix: Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Bugs" />
+    <MESSAGE value="modify: message" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: message" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-package net.starly.shop.event;
+package net.starly.shop.listener;
 
 import lombok.AllArgsConstructor;
 import net.starly.core.data.Config;
